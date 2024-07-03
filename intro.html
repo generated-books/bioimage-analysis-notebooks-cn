@@ -1,0 +1,864 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>生物图像分析笔记本 &#8212; Bio-image Analysis Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="预告片：使用Python进行生物图像分析" href="01_introduction/trailer.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="#">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="01_introduction/trailer.html">
+                        预告片：使用Python进行生物图像分析
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="01_introduction/readme.html">
+                        设置你的计算机
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="01_introduction/glossary.html">
+                        术语表
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="imprint.html">
+                        版本说明
+                      </a>
+                    </li>
+                
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="01_introduction/trailer.html">
+                        预告片：使用Python进行生物图像分析
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="01_introduction/readme.html">
+                        设置你的计算机
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="01_introduction/glossary.html">
+                        术语表
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="imprint.html">
+                        版本说明
+                      </a>
+                    </li>
+                
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="#">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    生物图像分析笔记本
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_introduction/trailer.html">预告片：使用Python进行生物图像分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_introduction/readme.html">设置你的计算机</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_introduction/glossary.html">术语表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imprint.html">版本说明</a></li>
+
+</ul>
+
+    </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="dropdown dropdown-repository-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      <li><a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks" target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">repository</span>
+</a>
+</a>
+      
+      <li><a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">open issue</span>
+</a>
+</a>
+      
+  </ul>
+</div>
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      <li><a href="_sources/intro.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</a>
+      
+      <li>
+<button onclick="printPdf(this)"
+  class="btn btn-sm dropdown-item"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</a>
+      
+  </ul>
+</div>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
+    </div>
+</div>
+            </div>
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>生物图像分析笔记本</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter">
+   本Jupyter书的结构
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   涵盖的Python库
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gpt">
+   生物图像分析GPT
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   相关工作
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     书面资源
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     视频
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   材料来源
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   问题和答案
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   致谢
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>生物图像分析笔记本<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://zenodo.org/badge/latestdoi/449194300"><img alt="DOI" src="https://zenodo.org/badge/449194300.svg" /></a></p>
+<p>这个<a class="reference external" href="https://www.python.org/">Python</a> <a class="reference external" href="https://jupyter.org/">jupyter</a>笔记本集合是为对使用现代荧光显微镜获得的细胞、组织、类器官和生物体的三维图像分析感兴趣的Python初学者编写的。基本原理在二维图像数据中进行演示,更复杂的例子应用于三维图像数据和时间序列数据集。</p>
+<p>本书是为生物学家、生物化学家和生物物理学家编写的。我们介绍了计算机科学家和数据科学家在描述图像分割、科学计算和图像数据科学时使用的技术语言。</p>
+<p>如果您发现有改进的空间,请<a class="reference external" href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/issues">创建一个github issue</a>和/或考虑<a class="reference external" href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/blob/main/CONTRIBUTING.md">贡献</a>。</p>
+<section id="jupyter">
+<h2>本Jupyter书的结构<a class="headerlink" href="#jupyter" title="Permalink to this heading">#</a></h2>
+<p>本书的章节最初涵盖Python、图像处理和图像分析的基础知识。之后涵盖了更高级的主题,包括机器学习和统计学。章节的顺序反映了典型的图像分析工作流程,从图像可视化、过滤和分割开始,然后是特征提取、表格数据处理、统计、绘图和数据可视化。每一章的开头,介绍了基本术语,并介绍了本章涵盖的所需Python库的安装说明。这些笔记本旨在自包含、自解释和完全可重现。因此,读者可以下载这本Jupyter书并按原样执行所有笔记本。作为一般要求,读者的计算机上应该有一个conda环境,如第一章所述。</p>
+</section>
+<section id="python">
+<h2>涵盖的Python库<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h2>
+<p>这些笔记本涵盖了基本的Python主题,然后过渡到标准的图像处理库,如<a class="reference external" href="http://scikit-image.org/">scikit-image</a>、<a class="reference external" href="https://scipy.org">scipy</a>和<a class="reference external" href="https://numpy.org/">numpy</a>。在高级主题中,我们越来越多地使用GPU加速库,如<a class="reference external" href="https://github.com/clEsperanto/pyclesperanto_prototype">pyclesperanto</a>和<a class="reference external" href="https://github.com/haesleinhuepf/apoc">apoc</a>。随着内容向三维生物图像处理和生命科学特定的定量分析转移,我们越来越多地使用我们和我们的合作者维护的自定义开源库。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/AllenCellModeling/aicsimageio">aicsimageio</a></p></li>
+<li><p><a class="reference external" href="https://github.com/haesleinhuepf/apoc">apoc</a></p></li>
+<li><p><a class="reference external" href="https://cupy.dev/">cupy</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/czifile/">czifile</a></p></li>
+<li><p><a class="reference external" href="https://dask.org/">dask</a></p></li>
+<li><p><a class="reference external" href="http://image.dask.org/en/latest/">dask-image</a></p></li>
+<li><p><a class="reference external" href="https://hdbscan.readthedocs.io/en/latest/how_hdbscan_works.html">hdbscan</a></p></li>
+<li><p><a class="reference external" href="https://python.langchain.com/en/latest/index.html">langchain</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/">matplotlib</a></p></li>
+<li><p><a class="reference external" href="https://napari.org/">napari</a></p></li>
+<li><p><a class="reference external" href="https://github.com/haesleinhuepf/napari-cupy-image-processing">napari-cupy-image-processing</a></p></li>
+<li><p><a class="reference external" href="https://github.com/haesleinhuepf/napari-segment-blobs-and-things-with-membranes">napari-segment-blobs-and-things-with-membranes</a></p></li>
+<li><p><a class="reference external" href="https://github.com/haesleinhuepf/napari-process-points-and-surfaces">napari-process-points-and-surfaces</a></p></li>
+<li><p><a class="reference external" href="https://github.com/haesleinhuepf/napari-simpleitk-image-processing">napari-simpleitk-image-processing</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/">numpy</a></p></li>
+<li><p><a class="reference external" href="https://nyxus.readthedocs.io/en/latest/">Nyxus</a></p></li>
+<li><p><a class="reference external" href="https://openai.com/blog/openai-api">OpenAI API</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/">pandas</a></p></li>
+<li><p><a class="reference external" href="https://github.com/yhat/pandasql/">pandasql</a></p></li>
+<li><p><a class="reference external" href="https://github.com/clEsperanto/pyclesperanto_prototype">pyclesperanto_prototype</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tlambert03/pycudadecon">pycudadecon</a></p></li>
+<li><p><a class="reference external" href="https://github.com/pragmaticindustries/pyncclient">pyncclient</a></p></li>
+<li><p><a class="reference external" href="https://github.com/owncloud/pyocclient">pyocclient</a></p></li>
+<li><p><a class="reference external" href="https://github.com/nimne/readlif">readlif</a></p></li>
+<li><p><a class="reference external" href="https://github.com/rosalindfranklininstitute/RedLionfish/">RedLionFish</a></p></li>
+<li><p><a class="reference external" href="http://scikit-image.org/">scikit-image</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org">scikit-learn</a></p></li>
+<li><p><a class="reference external" href="https://scipy.org/">scipy</a></p></li>
+<li><p><a class="reference external" href="https://seaborn.pydata.org/">seaborn</a></p></li>
+<li><p><a class="reference external" href="https://simpleitk.readthedocs.io/en/master/">SimpleITK</a></p></li>
+<li><p><a class="reference external" href="https://github.com/haesleinhuepf/stackview">stackview</a></p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/index.html">statsmodels</a></p></li>
+<li><p><a class="reference external" href="https://github.com/haesleinhuepf/the-segmentation-game">the-segmentation-game</a></p></li>
+<li><p><a class="reference external" href="https://umap-learn.readthedocs.io/en/latest/">umap-learn</a></p></li>
+<li><p><a class="reference external" href="https://vedo.embl.es/">vedo</a></p></li>
+<li><p><a class="reference external" href="https://zarr.readthedocs.io/en/stable/">zarr</a></p></li>
+</ul>
+</section>
+<section id="gpt">
+<h2>生物图像分析GPT<a class="headerlink" href="#gpt" title="Permalink to this heading">#</a></h2>
+<p>这个Jupyter笔记本集合用于创建<a class="reference external" href="https://chat.openai.com/g/g-psAohb1OY-bio-image-analysis">生物图像分析GPT</a>,一个专门用Python进行生物图像分析的基于chatGPT的聊天机器人。</p>
+</section>
+<section id="id2">
+<h2>相关工作<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>这不是第一个专注于生物图像分析和相关领域的Python Jupyter笔记本和教学材料集合。还有其他令人惊叹的资源,我们也从中学习。此外,我们之前也制作了一些可在线获得的材料,这些材料肯定会与这本Jupyter书有重叠。</p>
+<section id="id3">
+<h3>书面资源<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>对于喜欢书面教程和可执行Python Jupyter笔记本的读者,以下资源列表可能会感兴趣。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/guiwitz/DLImaging">Guillaume Witz的用于成像的深度学习</a></p></li>
+<li><p><a class="reference external" href="https://github.com/guiwitz/NumpyPandas_course">Guillaume Witz的Numpy和Pandas简介</a></p></li>
+<li><p><a class="reference external" href="https://github.com/guiwitz/neubias_academy_biapy">Guillaume Witz的NEUBIAS Academy &#64;HOME: 使用Python和Jupyter进行交互式生物图像分析</a></p></li>
+<li><p><a class="reference external" href="https://github.com/IAFIG-RMS/Python-for-Bioimage-Analysis">英国皇家显微镜学会(IAFIG-RMS)图像分析焦点兴趣小组的Python生物图像分析课程</a></p></li>
+<li><p><a class="reference external" href="https://github.com/jni/using-python-for-science">Juan Nunez-Iglesias的科学Python使用</a></p></li>
+<li><p><a class="reference external" href="https://neubias.github.io/training-resources/">NEUBIAS的培训资源</a></p></li>
+<li><p><a class="reference external" href="https://bioimagebook.github.io/">Pete Bankhead的生物图像分析简介</a></p></li>
+<li><p><a class="reference external" href="https://git.mpi-cbg.de/rhaase/lecture_applied_bioimage_analysis_2020">Robert Haase的应用生物图像分析讲座材料(2020)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BiAPoL/Bio-image_Analysis_with_Python">Robert Haase和Anna Poetsch的关于计算生物学的生物图像分析、生物统计学、编程和机器学习的讲座材料(2021)</a></p></li>
+<li><p><a class="reference external" href="https://scikit-image.org/docs/stable/auto_examples/index.html">Scikit-image的示例图库</a></p></li>
+<li><p><a class="reference external" href="https://github.com/bnsreenu/python_for_microscopists">Sreeni的显微镜学者Python教程</a></p></li>
+<li><p><a class="reference external" href="https://github.com/stefanv/teaching">Stefan van der Walt的Python讲座材料</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tlambert03/hms_pyintro2">Talley Lambert为显微镜学者编写的Python介绍</a></p></li>
+<li><p><a class="reference external" href="https://the-turing-way.netlify.app/">图灵之道</a></p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>视频<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<p>专注于各种主题,有YouTuber上传关于显微镜、生物图像分析、Python编程和统计学的视频。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/user/odlogo">Dominik Waithe关于生物图像分析和Python的YouTube频道</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/c/ibiology">iBiology关注显微镜和生物图像分析的YouTube频道</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=stiM1v0oY9c&amp;list=PLqwpOkZ9dxzKUjBx3dyaqjv6igKhGvAOG">HHMI Janelia光学兴趣小组YouTube频道</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/c/Microcourses/about">MicroCourses关注显微镜和图像形成的YouTube频道</a></p></li>
+<li><p><a class="reference external" href="https://youtube.com/neubias">NEUBIAS Academy关于生物图像分析工具的YouTube频道</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PL5ESQNfM5lc7SAMstEu082ivW4BDMvd0U">Robert Haase关于生物图像分析的YouTube讲座,(Python从第9课开始)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/channel/UC34rW-HtPJulxr5wp2Xa04w">Sreeni的YouTube频道(前身为显微镜学者Python教程)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw">StatQuest with Josh Starmer关于统计和机器学习的YouTube频道</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id5">
+<h2>材料来源<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<p>这个仓库包含从多个来源收集的Jupyter笔记本。它们在这里维护,以生成内容之间关系更加简化的课程材料。如果您对特定主题感兴趣,您可能会在源仓库中找到更新的材料。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/haesleinhuepf/apoc">apoc</a></p></li>
+<li><p><a class="reference external" href="https://github.com/biapol/blog">BiaPol博客</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BiAPoL/Bio-image_Analysis_with_Python">Bio-image_Analysis_with_Python</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BiAPoL/HIP_Introduction_to_Napari_and_image_processing_with_Python_2022">使用Python和Napari进行图像分析 - 2022年亥姆霍兹成像暑期学院</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BiAPoL/Image-data-science-with-Python-and-Napari-EPFL2022">2022年EPFL的Python和Napari图像数据科学课程</a></p></li>
+<li><p><a class="reference external" href="https://github.com/haesleinhuepf/label_neighbor_filters">label_neighbor_filters</a></p></li>
+<li><p><a class="reference external" href="https://git.mpi-cbg.de/rhaase/lecture_applied_bioimage_analysis_2020">lecture_applied_bioimage_analysis_2020</a></p></li>
+<li><p><a class="reference external" href="https://github.com/haesleinhuepf/napari-cupy-image-processing">napari-cupy-image-processing</a></p></li>
+<li><p><a class="reference external" href="https://github.com/haesleinhuepf/napari-segment-blobs-and-things-with-membranes">napari-segment-blobs-and-things-with-membranes</a></p></li>
+<li><p><a class="reference external" href="https://github.com/haesleinhuepf/napari-simpleitk-image-processing">napari-simpleitk-image-processing</a></p></li>
+<li><p><a class="reference external" href="https://github.com/haesleinhuepf/napari-workflow-optimizer">napari-workflow-optimizer</a></p></li>
+<li><p><a class="reference external" href="https://github.com/haesleinhuepf/napari-workflows">napari-workflows</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BiAPoL/on_the_fly_image_processing_napari">on_the_fly_image_processing_napari</a></p></li>
+<li><p><a class="reference external" href="https://github.com/clesperanto/pyclesperanto_prototype/">pyclesperanto-prototype</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BiAPoL/Quantitative_Bio_Image_Analysis_with_Python_2022">DIGS-BB / IMPRS 2022年Python定量生物图像分析课程</a></p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>问题和答案<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p>如果您想讨论这本Jupyter书中的课程,有反馈和/或建议,请在<a class="reference external" href="https://image.sc/">image.sc</a>上开一个主题并标记&#64;haesleinhuepf。</p>
+</section>
+<section id="id7">
+<h2>致谢<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<p>我们还要感谢那些公开分享其教学材料的作者,使我们能够重用和修改它们:</p>
+<ul class="simple">
+<li><p>Anna Poetsch, 德累斯顿工业大学生物技术中心</p></li>
+<li><p>Dominik Waithe, 牛津大学</p></li>
+<li><p>Guillaume Witz, 伯尔尼大学</p></li>
+<li><p>Johannes Müller, 德累斯顿工业大学生命物理学卓越集群</p></li>
+<li><p>Laura Žigutytė, 德累斯顿工业大学生命物理学卓越集群</p></li>
+<li><p>Pete Bankhead, 爱丁堡大学</p></li>
+<li><p>Ryan George Savill, 德累斯顿马克斯·普朗克分子细胞生物学与遗传学研究所/德累斯顿工业大学生命物理学卓越集群</p></li>
+</ul>
+<p>我们要感谢为本Jupyter书演示目的制作图像的人。</p>
+<ul class="simple">
+<li><p>Alba Villaronga Luque, 德累斯顿马克斯·普朗克分子细胞生物学与遗传学研究所</p></li>
+<li><p>Alexandr Khrapichev, 英国牛津大学</p></li>
+<li><p>Anne Carpenter, 美国马萨诸塞州波士顿布罗德研究所</p></li>
+<li><p>Anne Esslinger, 德国马克斯·普朗克分子细胞生物学与遗传学研究所Alberti实验室</p></li>
+<li><p>Daniela Vorkel, 德国德累斯顿马克斯·普朗克分子细胞生物学与遗传学研究所/系统生物学中心Myers实验室</p></li>
+<li><p>David Legland, 法国</p></li>
+</ul>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+  <a class='right-next' id="next-link" href="01_introduction/trailer.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">预告片：使用Python进行生物图像分析</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter">
+   本Jupyter书的结构
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   涵盖的Python库
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gpt">
+   生物图像分析GPT
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   相关工作
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     书面资源
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     视频
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   材料来源
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   问题和答案
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   致谢
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Robert Haase, Guillaume Witz, Miguel Fernandes, Marcelo Leomil Zoccoler, Shannon Taylor, Mara Lampert, Till Korten & add-your-name-here-by-sending-a-pull-request-containing-a-notebook
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+Copyright: Licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a> and <a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/blob/main/LICENSE-BSD3" target="_blank">BSD3</a> unless mentioned otherwise. 
+<a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/blob/main/CONTRIBUTING.md" target="_blank">Contribution and feedback welcome.</a>
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  </body>
+</html>
