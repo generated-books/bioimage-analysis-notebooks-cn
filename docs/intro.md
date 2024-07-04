@@ -115,21 +115,41 @@
 
 如果您想讨论这本Jupyter书中的课程,有反馈和/或建议,请在[image.sc](https://image.sc/)上开一个主题并标记@haesleinhuepf。
 
-## 致谢
+## 致谢 /  Acknowledgements
 
-我们还要感谢那些公开分享其教学材料的作者,使我们能够重用和修改它们:
-* Anna Poetsch, 德累斯顿工业大学生物技术中心
-* Dominik Waithe, 牛津大学
-* Guillaume Witz, 伯尔尼大学
-* Johannes Müller, 德累斯顿工业大学生命物理学卓越集群
-* Laura Žigutytė, 德累斯顿工业大学生命物理学卓越集群
-* Pete Bankhead, 爱丁堡大学
-* Ryan George Savill, 德累斯顿马克斯·普朗克分子细胞生物学与遗传学研究所/德累斯顿工业大学生命物理学卓越集群
+We also thank authors who shared their teaching materials openly so that we could reuse and modify them:
+* Anna Poetsch, Biotec, TU Dresden
+* Dominik Waithe, University of Oxford
+* Guillaume Witz, University of Bern
+* Johannes Müller, PoL, TU Dresden
+* Laura Žigutytė, PoL, TU Dresden
+* Pete Bankhead, University of Edinburgh
+* Ryan George Savill, MPI-CBG Dresden / PoL, TU Dresden
 
-我们要感谢为本Jupyter书演示目的制作图像的人。
-* Alba Villaronga Luque, 德累斯顿马克斯·普朗克分子细胞生物学与遗传学研究所
-* Alexandr Khrapichev, 英国牛津大学
-* Anne Carpenter, 美国马萨诸塞州波士顿布罗德研究所
-* Anne Esslinger, 德国马克斯·普朗克分子细胞生物学与遗传学研究所Alberti实验室
-* Daniela Vorkel, 德国德累斯顿马克斯·普朗克分子细胞生物学与遗传学研究所/系统生物学中心Myers实验室
-* David Legland, 法国
+We want to acknowledge the people who produced the images we are using for demonstration purposes in this Jupyter book.
+* Alba Villaronga Luque, MPI-CBG Dresden
+* Alexandr Khrapichev, University of Oxford, UK
+* Anne Carpenter, Broad Institute, Boston, MA, United States
+* Anne Esslinger, Alberti Lab, MPI-CBG, Germany
+* Daniela Vorkel, Myers Lab, MPI-CBG / CSBD, Dresden, Germany
+* David Legland, INRAE, UR BIA, Nantes, France
+* Jean-Karim Hériché, Cell Biology/Biophysics Unit, EMBL Heidelberg, Germany
+* Jesse Veenvliet, MPI-CBG Dresden
+* Mauricio Rocha Martins, Norden Lab, MPI-CBG, Germany
+* Nasreddin Abolmaali, OncoRay, TU Dresden, Germany
+* Sascha M. Kuhn, Nadler Lab, MPI-CBG Dresden, Germany
+* Theresa Suckert, OncoRay, University Hospital Carl Gustav Carus, TU Dresden
+* Tony Collins, the creator of ImageJ for Microscopy
+
+
+We acknowledge support by the Deutsche Forschungsgemeinschaft under Germany’s Excellence Strategy—EXC2068–Cluster of Excellence Physics of Life of TU Dresden.
+This project has been made possible in part by grant numbers 2021-240341, 2021-237734 and 2022-252520 from the Chan Zuckerberg Initiative DAF, an advised fund of the Silicon Valley Community Foundation.
+
+## License
+
+All contents of this Jupyter book and the corresponding Github repository are licensed [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) and 
+BSD3 by the [authors and contributors](https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/contributors), unless mentioned otherwise.
+
+## Contributing
+
+Please see our [CONTRIBUTING](https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/blob/main/CONTRIBUTING.md) guide for details.
